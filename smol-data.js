@@ -31,8 +31,17 @@ io.origins((origin, callback) => {
 });
 
 // Create HTTPS server
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 https.listen(config.port, () => {
 	console.log(`listening on *:${config.port}`);
+});
+
+// Homepage
+app.get('/', (req, res) => {
+	res.render('page', {
+		title: 'Smol Data',
+		page: '¡Hola, mundo!'
+	});
 });
