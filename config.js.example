@@ -1,0 +1,10 @@
+module.exports = {
+	ssl: {
+		key: "ssl/key.pem",
+		cert: "ssl/cert.pem"
+	},
+	cors_origins: [
+		"*"
+	],
+	
+};
