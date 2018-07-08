@@ -3,12 +3,151 @@
 	<head>
 		<meta charset="utf-8">
 		<title><%= title %></title>
-		<link rel="stylesheet" href="/css/smol.css">
+		<link rel="stylesheet" href="/assets/fonts/source-sans-pro/source-sans-pro.css">
+		<link rel="stylesheet" href="/assets/css/highlight.css">
+		<link rel="stylesheet" href="/assets/css/smol.css">
 	</head>
 	<body>
-		<div id="page">
-			<%= page %>
-		</div>
-		<script src="/js/smol.js"></script>
+		<% if (user && user.status == 'pending') { %>
+			<div id="notify">
+				💌 Your email address has not been confirmed.
+			</div>
+		<% } %>
+		<header>
+			<nav>
+				<h1><a href="/">phiffer.org</a></h1> →
+				<a href="/new" class="btn">post</a>
+				<a href="/archive">archive</a>
+				<a href="/projects">projects</a>
+				<a href="/about">about</a>
+			</nav>
+			<div id="user">
+				<% if (user) { %>
+					<a href="/profile" class="menu-toggle">
+						<span class="username"><%= user.username %></span>
+					▾</a>
+					<ul id="user-menu">
+						<li><a href="/api/logout" class="logout">Logout</a></li>
+					</ul>
+				<% } else { %>
+					<a href="/join" class="join">Join</a>
+					<a href="/login" class="login btn">Login</a>
+				<% } %>
+			</div>
+			<form action="/api/login" method="post" id="login">
+				<label>
+					Email address
+					<input type="email" name="email">
+				</label>
+				<label>
+					Password
+					<input type="password" name="password">
+				</label>
+				<div class="buttons">
+					<input type="submit" value="Login" class="btn">
+					<a href="#forgot" class="forgot">Forgot your password?</a>
+				</div>
+				<div class="response">&nbsp;</div>
+			</form>
+			<form action="/api/join" method="post" id="join">
+				<label>
+					Email address
+					<input type="email" name="email">
+				</label>
+				<label>
+					Username
+					<input type="text" name="username">
+				</label>
+				<label>
+					Password
+					<input type="password" name="password">
+				</label>
+				<label>
+					Password again
+					<input type="password" name="password_again">
+				</label>
+				<div class="buttons">
+					<input type="submit" value="Join" class="btn">
+				</div>
+				<div class="response">&nbsp;</div>
+			</form>
+			<form action="/api/forgot" method="post" id="login">
+				<h3>Request a password reset</h3>
+				<label>
+					Email address
+					<input type="email" name="email">
+				</label>
+				<div class="buttons">
+					<input type="submit" value="Login" class="btn">
+					<a href="#forgot" class="forgot">Forgot your password?</a>
+				</div>
+				<div class="response">&nbsp;</div>
+			</form>
+		</header>
+		<%- include(main, content) %>
+		<footer>
+			<div class="grid">
+				<div class="column">
+					<h3>phiffer.org</h3>
+					<ul>
+						<li><a href="/links">Links</a></li>
+						<li><a href="/photos">Photos</a></li>
+						<li><a href="/videos">Videos</a></li>
+						<li><a href="/writing">Writing</a></li>
+						<li><a href="/audio">Audio</a></li>
+						<li><a href="/events">Events</a></li>
+						<li><a href="/tags">Tags</a></li>
+						<li><a href="/feed">RSS feed</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3>Projects</h3>
+					<ul>
+						<li>
+							<a href="https://smoldata.org/">Smol Data</a>
+						</li>
+						<li>
+							<a href="http://youarehere.network/">You Are Here</a>
+						</li>
+						<li>
+							<a href="http://ellieirons.com/flight-lines/">Flight Lines</a>
+						</li>
+						<li>
+							<a href="http://occupyhere.org/">Occupy.here</a>
+						</li>
+						<li>
+							<a href="https://wordpress.org/plugins/json-api/">JSON API</a>
+						</li>
+						<li>
+							<a href="http://futurearchaeology.org/">Future Archaeology</a>
+						</li>
+						<li>
+							<a href="http://youarenothere.org/">You Are Not Here</a>
+						</li>
+						<li>
+							<a href="https://en.wikipedia.org/wiki/ShiftSpace">ShiftSpace</a>
+						</li>
+						<li>
+							<a href="http://www.moma.org/interactives/exhibitions/2008/elasticmind/#/17/">Atlas Gloves</a>
+						</li>
+					</ul>
+					<p><a href="/projects" class="read-more">More projects →</a></p>
+				</div>
+				<div class="column">
+					<h3>About</h3>
+					<p>Dan Phiffer is an Internet enthusiast based in Troy, NY. He works as a software developer at the <a href="https://www.aclu.org/">ACLU</a> and teaches at <a href="http://www.bennington.edu/">Bennington College</a>.</p>
+					<ul>
+						<li><a href="mailto:dan@phiffer.org">Email</a> (PGP: <a href="/etc/BA9280C9.asc">BA9280C9</a>)</li>
+						<li><a href="/dan_phiffer_resume.pdf">Résumé</a></li>
+						<li><a href="/dan_phiffer.jpg">Portrait</a></li>
+					</ul>
+					<p><a href="/about" class="read-more">Read more →</a></p>
+				</div>
+			</div>
+		</footer>
+		<script src="/assets/js/jquery.js"></script>
+		<script src="/assets/js/highlight.js"></script>
+		<script src="/assets/js/highlightjs-line-numbers.min.js"></script>
+		<script src="/assets/js/smol.js"></script>
 	</body>
 </html>

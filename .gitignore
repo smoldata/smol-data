@@ -2,3 +2,6 @@
 /config.js
 /node_modules
 /ssl/*.pem
+/_accounts/*.json
+/_private/*
+/_data/*

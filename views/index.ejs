@@ -1,0 +1,17 @@
+<div id="main">
+	<% if (typeof index_title == 'string') { %>
+		<h2 class="index-title"><%= index_title %></h2>
+	<% } %>
+	<% for (let post of posts) { %>
+		<%- include('post', {
+			post: post,
+			context: 'index'
+		}) %>
+	<% } %>
+	<% if (before_param || after_param) { %>
+		<%- include('pagination', {
+			before_param: before_param,
+			after_param: after_param
+		}) %>
+	<% } %>
+</div>

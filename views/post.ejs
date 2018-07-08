@@ -1,0 +1,31 @@
+<div class="<%= get_post_class(post, context) %>">
+	<% if ('title' in post.meta) { %>
+		<h1><a href="<%= get_href(post) %>"><%- post.meta.title %></a></h1>
+	<% } %>
+	<div class="byline">
+		<a href="<%= get_path(post) %>" title="Posted at <%= post.meta.time_formatted %>"><%= post.meta.date_formatted %></a>
+		<% if ('authors' in post.meta) { %>
+			by <%- get_authors(post) %>
+		<% } %>
+		<% if ('categories' in post.meta) { %>
+			in
+			<% for (let category of post.meta.categories) { %>
+				<a href="/<%= category.slug %>"><%= category.name %></a>
+			<% } %>
+		<% } %>
+	</div>
+	<div class="grid">
+		<div class="content">
+			<%- get_content(post, context) %>
+		</div>
+		<div class="meta">
+			<% if ('tags' in post.meta) { %>
+				<ul class="tags">
+					<% for (let tag of post.meta.tags) { %>
+						<li><a href="/tags/<%= tag.slug %>"><%= tag.name %></a></li>
+					<% } %>
+				</ul>
+			<% } %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<div class="pagination">
+	<% if (before_param) { %>
+		<a href="?before=<%= before_param %>" class="btn">← older posts</a>
+	<% } %>
+	<% if (after_param) { %>
+		<a href="?after=<%= after_param %>" class="btn">newer posts →</a>
+	<% } %>
+</div>
