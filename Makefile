@@ -1,4 +1,4 @@
-all: npm fonts jquery highlightjs
+all: npm fonts jquery
 
 npm:
 	npm install
@@ -10,5 +10,7 @@ fonts:
 jquery:
 	cp node_modules/jquery/dist/jquery.js _data/assets/js/jquery.js
 
-highlightjs:
-	scripts/highlightjs.sh
+codemirror:
+	cp node_modules/codemirror/lib/codemirror.js _data/assets/js/codemirror.js
+	cp node_modules/codemirror/lib/codemirror.css _data/assets/css/codemirror.css
+	

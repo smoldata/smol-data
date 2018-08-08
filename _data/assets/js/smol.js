@@ -29,9 +29,9 @@ $(document).ready(function() {
 			html = '<ul>' + html + '</ul>';
 			$(block).html(html);
 		} else {
-			hljs.lineNumbersBlock(block);
+			//hljs.lineNumbersBlock(block);
 		}
-		hljs.highlightBlock(block);
+		//hljs.highlightBlock(block);
 	});
 
 	$('iframe').each(function(i, block) {
