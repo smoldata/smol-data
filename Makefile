@@ -13,4 +13,3 @@ jquery:
 codemirror:
 	cp node_modules/codemirror/lib/codemirror.js _data/assets/js/codemirror.js
 	cp node_modules/codemirror/lib/codemirror.css _data/assets/css/codemirror.css
-	

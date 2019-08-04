@@ -1,7 +1,4 @@
 <div id="main">
-	<% if (typeof index_title == 'string') { %>
-		<h2 class="index-title"><%= index_title %></h2>
-	<% } %>
 	<% for (let post of posts) { %>
 		<%- include('post', {
 			post: post,

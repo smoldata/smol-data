@@ -169,9 +169,9 @@ function get_content(post, context) {
 		if (post.meta.image) {
 			let url = get_path(post);
 			markdown = `
-<figure>[![](/media/${post.meta.image})](${url})</figure>
+<figure><a href="${url}"><img src="/media/${post.meta.image}" alt=""></a></figure>
 
-[View all photos](${url})
+[View all photos →](${url})
 			`;
 		}
 	}
@@ -392,7 +392,7 @@ function index_post(filename) {
 			if ('category_list' in post.meta) {
 				for (let category of post.meta.category_list) {
 					values = [
-						`/categories/${category}`,
+						`/${category}`,
 						path,
 						rel_path,
 						post.meta.date
@@ -600,20 +600,18 @@ function load_index(timeline, res, rsp, index_title, user) {
 	Promise.all(get_posts).then((posts) => {
 		posts.sort((a, b) => {
 			if (a.meta.timestamp > b.meta.timestamp) {
-				return 1;
-			} else {
 				return -1;
+			} else {
+				return 1;
 			}
 		});
 		get_pagination(timeline, posts, rsp).then((index) => {
-			if (index_title) {
-				index.index_title = index_title;
-			}
 			rsp.render('page', {
 				title: 'phiffer.org',
 				main: 'index',
 				content: index,
-				user: user
+				user: user,
+				index_title: index_title
 			});
 		})
 		.catch((err) => {
@@ -675,10 +673,10 @@ app.get('/', (req, rsp) => {
 	get_timeline('/', req, rsp);
 });
 
-app.get('/categories/:category', (req, rsp) => {
+app.get('/:category', (req, rsp) => {
 	let category = get_category(req.params.category);
 	let index_title = `Category: ${category.name}`;
-	get_timeline(`/categories/${category.slug}`, req, rsp, index_title);
+	get_timeline(`/${category.slug}`, req, rsp, index_title);
 });
 
 app.get('/tags/:tag', (req, rsp) => {

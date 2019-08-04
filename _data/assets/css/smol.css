@@ -83,11 +83,10 @@ strong, b {
 }
 
 p {
-	margin: 15px 0;
+	margin: 20px 0;
 }
 
 h1, h2, h3 {
-	font-family: "Source Sans Pro", sans-serif;
 	font-weight: bold;
 	margin: 1.5em 0 1em 0;
 	line-height: 1.15em;
@@ -110,11 +109,6 @@ h1 { font-size: 28px; }
 h2 { font-size: 20px; }
 h3 { font-size: 18px; text-transform: uppercase; }
 
-.index-title {
-	margin-top: 2.5em;
-}
-
-
 ol li {
 	list-style: decimal;
 	margin-left: 1.25em;
@@ -123,10 +117,6 @@ ol li {
 ul li {
 	list-style: square;
 	margin-left: 1.25em;
-}
-
-.post .content li {
-	margin-bottom: 0.5em;
 }
 
 code li {
@@ -145,7 +135,7 @@ code {
 
 pre code {
 	display: block;
-	margin: 15px 0;
+	margin: 20px 0;
 	padding: 0.75em 1em !important;
 	color: #333;
 }
@@ -205,7 +195,7 @@ blockquote {
 
 #main {
 	width: 100%;
-	padding: 0 15px;
+	padding: 0 20px;
 }
 
 .post {
@@ -226,8 +216,8 @@ blockquote {
 	top: 0;
 	right: -15px;
 	left: -15px;
-	height: 4px;
-	background: linear-gradient(80deg, #6835E7, #4E6FFF);
+	height: 6px;
+	background: #4E6FFF;
 }
 
 .post:first-child::before {
@@ -238,20 +228,8 @@ blockquote {
 	margin: 0 0 0.25em 0;
 }
 
-.byline,
-.byline a {
-	font-family: "Source Sans Pro", sans-serif;
-	color: #999;
-}
-
-.byline a {
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.byline a:hover {
-	color: #4E6FFF;
-	text-decoration: underline;
+.byline {
+	margin-top: 2em;
 }
 
 .category {
@@ -263,10 +241,6 @@ blockquote {
 	text-decoration: none;
 }
 
-.meta {
-	font-family: "Source Sans Pro", sans-serif;
-}
-
 .meta ul {
 	display: inline;
 }
@@ -274,12 +248,7 @@ blockquote {
 .meta li {
 	display: inline;
 	list-style: none;
-	margin-left: 10px;
-}
-
-.read-more {
-	font-family: "Source Sans Pro", sans-serif;
-	font-weight: bold;
+	margin: 0 10px 0 0;
 }
 
 .tags .spacer {
@@ -305,120 +274,43 @@ td.hljs-ln-code {
 }
 
 header {
-	color: #fff;
 	position: relative;
-	background-image: linear-gradient(80deg, #6835E7, #4E6FFF, #1DDA4F);
-	background-attachment: fixed;
-	font-family: "Source Sans Pro", sans-serif;
-	min-height: 170px;
-	transition: 0.2s min-height ease-out;
-}
-
-header nav {
-	position: absolute;
-	left: 15px;
-	bottom: 15px;
-	color: rgba(255, 255, 255, 0.75);
-}
-
-header h1 {
-	font-weight: 600;
-	display: inline;
-	font-size: 1em;
-	margin: 0;
+	width: 100%;
+	height: 44.7213vw;
+	max-height: 44.7213vh;
+	color: #fff;
+	background: #0330AF;
 }
 
 header a {
 	color: #fff;
-	font-size: 16px;
+	margin-right: 10px;
 }
 
 header a:hover {
-	text-decoration: underline;
-	color: #fff;
+	color: #1DDA4F;
 }
 
-header nav a {
+header .overview {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+}
+
+header h1,
+header h2 {
+	display: inline;
+	margin: 0 0 10px 0;
+}
+
+header h2 {
+	font-size: 24px;
+	opacity: 0.8;
 	text-transform: uppercase;
-	text-decoration: none;
-	color: #fff;
-	margin: 0 0 0 15px;
-}
-
-header h1 a {
-	margin-right: 15px;
-	font-size: 1em;
-}
-
-header h1 a {
-	text-transform: lowercase;
-}
-
-header #user {
-	position: absolute;
-	top: 15px;
-	right: 15px;
-}
-
-header #user .btn:hover {
-	color: #1DDA4F;
-}
-
-header #user a {
-	text-decoration: none;
-	font-weight: bold;
-}
-
-header #user a.login {
-	margin-left: 15px;
-}
-
-header #user a.join:hover {
-	text-decoration: underline;
-}
-
-header #user a .username {
-	margin-right: 3px;
-}
-
-header #user a:hover .username {
-	text-decoration: underline;
-}
-
-header #user-menu {
-	position: absolute;
-	top: -1000px;
-	right: 0;
-	width: 150px;
-	padding: 10px 15px;
-	border-radius: 4px;
-	background: rgba(255, 255, 255, 0.9);
-}
-
-header #user-menu li {
-	list-style: none;
-	margin-left: 0;
-}
-
-header #user-menu a {
-	color: #1DDA4F;
-	display: block;
-}
-
-header #user-menu.visible {
-	top: 35px;
-}
-
-header.fullscreen {
-	min-height: 100vh;
-}
-
-header.fullscreen nav {
-	display: none;
 }
 
 form .response {
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 #login,
@@ -466,7 +358,6 @@ input[type="submit"] {
 	transition: 0.1s background-color ease-out;
 	cursor: pointer;
 	font-size: 18px;
-	font-family: "Source Sans Pro", sans-serif;
 	text-transform: uppercase;
 }
 
@@ -477,18 +368,17 @@ input[type="submit"]:hover {
 
 footer {
 	color: #fff;
-	background: linear-gradient(80deg, #0330AF, #0A105D);
+	background: #101633;
 	margin-top: 45px;
-	padding: 0 15px 30px 15px;
-	font-family: "Source Sans Pro", sans-serif;
+	padding: 0 20px 45px 20px;
 }
 
 footer .column {
-	padding-top: 15px;
+	padding-top: 20px;
 }
 
 footer h3 {
-	padding-top: 15px;
+	padding-top: 20px;
 	margin-top: 0;
 }
 
@@ -498,15 +388,6 @@ footer a {
 
 footer a:hover {
 	color: #1DDA4F;
-}
-
-footer .read-more {
-	text-decoration: none;
-	font-weight: 600;
-}
-
-footer .read-more:hover {
-	text-decoration: underline;
 }
 
 audio {
@@ -532,7 +413,7 @@ audio {
 }
 
 .content {
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 .content > *:first-child {
@@ -541,16 +422,6 @@ audio {
 
 .meta {
 	text-transform: lowercase;
-}
-
-.meta a {
-	color: #999;
-	text-decoration: none;
-}
-
-.meta a:hover {
-	color: #4E6FFF;
-	text-decoration: underline;
 }
 
 .clear {
@@ -572,16 +443,6 @@ audio {
 	text-decoration: none;
 }
 
-header .btn {
-	border-color: #fff;
-}
-
-header .btn:hover {
-	color: #4E6FFF;
-	background: #fff;
-	border-color: #fff;
-}
-
 .gallery li {
 	list-style: none;
 	margin-left: 0;
@@ -596,18 +457,34 @@ header .btn:hover {
 	position: relative;
 	margin: 1.5em auto 0 auto;
 	padding-top: 2.5em;
+	padding-bottom: 2.5em;
 	font-size: 1.1em;
-	font-family: "Source Sans Pro", sans-serif;
 	max-width: 700px;
 }
 
 .pagination .btn {
-	margin-right: 15px;
+	margin-right: 20px;
 	padding: 10px 15px;
 }
 
 .category-photos-single p {
 	max-width: 700px;
+}
+
+.permalink {
+	position: relative;
+	margin-left: 20px;
+}
+
+.permalink::before {
+	position: absolute;
+	top: 3px;
+	left: -22px;
+	width: 16px;
+	height: 16px;
+	content: "";
+	border-radius: 16px;
+	background: #4E6FFF;
 }
 
 @media screen and (min-width: 481px) {
@@ -621,6 +498,13 @@ header .btn:hover {
 
 @media screen and (min-width: 760px) {
 
+	header .overview {
+		padding: 0;
+		position: absolute;
+		bottom: 20px;
+		left: calc(50vw - 350px);
+	}
+
 	.post::before,
 	.pagination::before {
 		right: 0;
@@ -631,23 +515,9 @@ header .btn:hover {
 	h2 { font-size: 24px; }
 	h3 { font-size: 18px; }
 
-	header {
-		height: 200px;
-	}
-
-	header nav {
-		left: 20px;
-		bottom: 20px;
-	}
-
-	header #user {
-		top: 20px;
-		right: 20px;
-	}
-
 	.gallery .half-width {
 		float: left;
-		width: calc(50% - 15px);
+		width: calc(50% - 20px);
 	}
 
 	.gallery .half-width figure {
@@ -660,7 +530,7 @@ header .btn:hover {
 
 	footer {
 		margin-top: 60px;
-		padding-top: 15px;
+		padding-top: 20px;
 	}
 
 	footer .grid {
@@ -679,37 +549,19 @@ header .btn:hover {
 
 @media screen and (min-width: 1125px) {
 
-	header {
-		height: 320px;
-	}
-
-	header nav {
-		left: 30px;
-		bottom: 20px;
-	}
-
-	header #user {
-		top: 30px;
-		right: 30px;
-	}
-
-	header h1 {
-		font-size: 24px;
-	}
-
-	header a {
-		font-size: 1em;
+	header .overview {
+		left: calc(50vw - 532.5px);
 	}
 
 	#main {
 		width: 1065px;
 		padding: 0;
-		margin: 15px auto;
+		margin: 20px auto;
 	}
 
 	.post {
 		max-width: none;
-		padding-top: 45px;
+		padding-top: 60px;
 		margin-top: 45px;
 	}
 
@@ -724,18 +576,21 @@ header .btn:hover {
 		width: calc(700px + 50vw - 532px);
 	}
 
-	.post:not(.category-photos-single) .grid {
-		display: grid;
-		grid-template-columns: 700px 365px;
-	}
-
 	.post:not(.category-photos-single) .content {
+		float: left;
 		width: 700px;
 	}
 
 	.post:not(.category-photos-single) .meta {
+		float: right;
 		width: 365px;
 		padding: 30px 0 0 30px;
+	}
+
+	.post:not(.category-photos-single)::after {
+		display: block;
+		content: "";
+		clear: both;
 	}
 
 	.post:not(.category-photos-single) .meta .category {

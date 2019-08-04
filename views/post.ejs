@@ -1,23 +1,8 @@
 <div class="<%= get_post_class(post, context) %>">
-	<% if ('title' in post.meta) { %>
+	<% if ('title' in post.meta && ! post.meta.title.match(/\d{4}-\d{2}-\d{2}/)) { %>
 		<h1><a href="<%= get_href(post) %>"><%- post.meta.title %></a></h1>
 	<% } %>
-	<div class="byline">
-		<a href="<%= get_path(post) %>" title="Posted at <%= post.meta.time_formatted %>"><%= post.meta.date_formatted %></a>
-		<% if ('authors' in post.meta) { %>
-			by <%- get_authors(post) %>
-		<% } %>
-		<% if ('categories' in post.meta) { %>
-			in
-			<% for (let category of post.meta.categories) { %>
-				<a href="/<%= category.slug %>"><%= category.name %></a>
-			<% } %>
-		<% } %>
-	</div>
 	<div class="grid">
-		<div class="content">
-			<%- get_content(post, context) %>
-		</div>
 		<div class="meta">
 			<% if ('tags' in post.meta) { %>
 				<ul class="tags">
@@ -26,6 +11,18 @@
 					<% } %>
 				</ul>
 			<% } %>
+		</div>
+		<div class="content">
+			<%- get_content(post, context) %>
+			<div class="byline">
+				<a href="<%= get_path(post) %>" class="permalink" title="Posted at <%= post.meta.time_formatted %>"><%= post.meta.date_formatted %></a>
+				<% if ('categories' in post.meta) { %>
+					in
+					<% for (let category of post.meta.categories) { %>
+						<a href="/<%= category.slug %>"><%= category.name %></a>
+					<% } %>
+				<% } %>
+			</div>
 		</div>
 	</div>
 </div>
