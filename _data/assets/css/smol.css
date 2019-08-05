@@ -279,7 +279,7 @@ header {
 	height: 44.7213vw;
 	max-height: 44.7213vh;
 	color: #fff;
-	background: #0330AF;
+	background: linear-gradient(-10deg, #0330AF, #4E6FFF);
 }
 
 header a {
@@ -304,7 +304,6 @@ header h2 {
 }
 
 header h2 {
-	font-size: 24px;
 	opacity: 0.8;
 	text-transform: uppercase;
 }
@@ -368,7 +367,7 @@ input[type="submit"]:hover {
 
 footer {
 	color: #fff;
-	background: #101633;
+	background: linear-gradient(-10deg, #101633, #0330AF);
 	margin-top: 45px;
 	padding: 0 20px 45px 20px;
 }

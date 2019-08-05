@@ -605,9 +605,16 @@ function load_index(timeline, res, rsp, index_title, user) {
 				return 1;
 			}
 		});
+
+		let site_title = 'phiffer.org';
+		let page_title = site_title;
+		if (index_title) {
+			page_title = `${index_title} / ${site_title}`;
+		}
+
 		get_pagination(timeline, posts, rsp).then((index) => {
 			rsp.render('page', {
-				title: 'phiffer.org',
+				title: page_title,
 				main: 'index',
 				content: index,
 				user: user,
@@ -675,14 +682,12 @@ app.get('/', (req, rsp) => {
 
 app.get('/:category', (req, rsp) => {
 	let category = get_category(req.params.category);
-	let index_title = `Category: ${category.name}`;
-	get_timeline(`/${category.slug}`, req, rsp, index_title);
+	get_timeline(`/${category.slug}`, req, rsp, category.name);
 });
 
 app.get('/tags/:tag', (req, rsp) => {
 	let tag = get_tag(req.params.tag);
-	let index_title = `Tag: ${tag.name}`;
-	get_timeline(`/tags/${tag.slug}`, req, rsp, index_title);
+	get_timeline(`/tags/${tag.slug}`, req, rsp, tag.name);
 });
 
 app.get(/\d+w\.jpe?g$/, (req, rsp) => {
