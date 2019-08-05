@@ -600,9 +600,9 @@ function load_index(timeline, res, rsp, index_title, user) {
 	Promise.all(get_posts).then((posts) => {
 		posts.sort((a, b) => {
 			if (a.meta.timestamp > b.meta.timestamp) {
-				return -1;
-			} else {
 				return 1;
+			} else {
+				return -1;
 			}
 		});
 
